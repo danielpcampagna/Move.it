@@ -94,7 +94,7 @@ This is not a project for commercial aims but serves to fill my personal portfol
 
 ### Move.it
 
-![Challenge completed](public/thumb02.png)
+![Challenge completed](public/captured.gif)
 
 Move.it is a web application to assist people who work seated throughout their journey. By using gamification principles where users can grow up their level while accumulate experience, Move.it randomly generates a challenge after 25min that requires the user to execute an ergometry exercise involving part of his or her body or eyes. If such a challenge is completed, the user gains experience. All these challenges were obtained from a safe source regarding the benefit of health.
 
