@@ -1,6 +1,7 @@
 .experienceBar {
     display: flex;
     align-items: center;
+    margin-bottom: calc(1rem + 12px);
 }
 
 .experienceBar span {
