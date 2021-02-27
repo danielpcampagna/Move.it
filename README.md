@@ -40,7 +40,7 @@
     <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <br /> -->
     <br />
-    <a href="https://www.figma.com/file/o262Plc5wiWHhE1ENPEkr0/Move.it-1.0/">View Templates</a>
+    <a href="https://www.figma.com/file/XCIDuGRBbSbZnWNUy1KNN8/Move.it-2.0">View Templates</a>
     ·
     <a href="https://nlw4-moveit-two.vercel.app/">View Demo</a>
     ·
