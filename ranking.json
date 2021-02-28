@@ -1,0 +1,62 @@
+[
+    {
+      "position": 1,
+      "user": {
+          "name": "Diego Fernandes",
+          "level": 43,
+          "challengesCompleted": 127,
+          "experience": 154000,
+          "picture": "https://github.com/danielpcampagna.png"
+      }
+    },
+    {
+      "position": 2,
+      "user": {
+          "name": "Tiago Luchtenberg",
+          "level": 37,
+          "challengesCompleted": 98,
+          "experience": 117000,
+          "picture": "https://github.com/danielpcampagna.png"
+      }
+    },
+    {
+      "position": 3,
+      "user": {
+          "name": "Cleiton Souza",
+          "level": 37,
+          "challengesCompleted": 84,
+          "experience": 98000,
+          "picture": "https://github.com/danielpcampagna.png"
+      }
+    },
+    {
+      "position": 4,
+      "user": {
+          "name": "Robson Marques",
+          "level": 37,
+          "challengesCompleted": 97,
+          "experience": 77400,
+          "picture": "https://github.com/danielpcampagna.png"
+      }
+    },
+    {
+      "position": 5,
+      "user": {
+          "name": "Rogrigo Terron",
+          "level": 37,
+          "challengesCompleted": 65,
+          "experience": 52000,
+          "picture": "https://github.com/danielpcampagna.png"
+      }
+    },
+    {
+      "position": 6,
+      "user": {
+          "name": "Abraão Sena",
+          "level": 37,
+          "challengesCompleted": 25,
+          "experience": 26000,
+          "picture": "https://github.com/danielpcampagna.png"
+      }
+    }
+]

@@ -1,0 +1,119 @@
+.rankingContainer {
+    height: 100vh;
+    max-width: 992px;
+    margin: 0 auto;
+    padding: 0 2rem;
+
+    display: flex;
+    flex-direction: column;
+
+    top: 0;
+}
+
+.rankingContainer header {
+    padding: 2.5rem 0;
+    color: var(--title);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 4.5rem 32.5rem 10rem 10rem;
+    grid-gap: 0;
+    /* height: 100%; */
+}
+
+.grid .cell, .grid .header, .grid .firstCell, .grid .lastCell {
+    padding: 20px;
+    font-size: 150%;
+    padding: 0;
+}
+
+.grid .cell, .grid .firstCell, .grid .lastCell {
+    margin: 0 auto 0.5rem auto;
+    background: var(--white);
+    height: 6rem;
+    width: 100%;
+    vertical-align:top;
+    
+    text-align: left;
+    font-size: 1rem;
+}
+
+.grid .header {
+    font-size: 0.875rem;
+    color: var(--text);
+    text-transform: uppercase;
+    font-weight: bold;
+    
+    opacity: 0.5;
+    border-bottom: 1.5rem solid transparent;
+}
+
+.grid .firstCell {
+    font-size: 1.5rem;
+    line-height: 6rem;
+    text-align: center;
+    
+    border-radius: 5px 0 0 5px;
+    border-right: 0.25rem solid var(--backgroud);
+}
+
+.grid .lastCell {
+    border-radius: 0 5px 5px 0;
+}
+
+.cell.user > div {
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.cell.user img.logo {
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 1rem;
+}
+
+.cell.user .info {
+    display: flex;
+    flex-direction: row;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.cell.user img.level {
+    height: 1rem;
+    width: 1rem;
+    margin-right: 0.5rem;
+}
+
+.cell.user strong, .cell.user p {
+    line-height: 0.5rem;
+}
+
+.cell.user strong {
+    color: var(--title);
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+    border-bottom: 0.5rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.cell.user p {
+    color: var(--text);
+    line-height: 1rem;
+    display: block;
+}
+
+
+.header {
+    color: var(--title);
+    opacity: 0.5;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+}

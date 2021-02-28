@@ -1,3 +1,4 @@
+import React from 'react';
 import Head from 'next/head';
 import { GetServerSideProps } from 'next';
 
@@ -10,6 +11,9 @@ import { ChallengeBox } from '../components/ChallengeBox';
 import styles from '../styles/pages/Home.module.css';
 import { CountdownProvider } from '../contexts/CountdownContext';
 import { ChallengesProvider } from '../contexts/ChallengesContext';
+
+
+import Navbar from '../components/Navbar';
 
 interface HomeProps {
   level: number,
@@ -25,26 +29,31 @@ export default function Home(props: HomeProps) {
       currentExperience={props.currentExperience}
       challengesCompleted={props.challengesCompleted}
     >
-      <div className={styles.container}>
-        <Head>
-          <title>Início | move.it</title>
-        </Head>
+      <Navbar>
+        {/* <div className={styles.homeContainer}> */}
+          <div className={styles.container}>
+            <Head>
+              <title>Início | move.it</title>
+            </Head>
 
-        <ExperienceBar></ExperienceBar>
 
-        <CountdownProvider>
-          <section>
-            <div>
-              <Profile />
-              <CompletedChallenges />
-              <Countdown />
-            </div>
-            <div>
-              <ChallengeBox/>
-            </div>
-          </section>
-        </CountdownProvider>
-      </div>
+            <ExperienceBar></ExperienceBar>
+
+            <CountdownProvider>
+              <section>
+                <div>
+                  <Profile />
+                  <CompletedChallenges />
+                  <Countdown />
+                </div>
+                <div>
+                  <ChallengeBox/>
+                </div>
+              </section>
+            </CountdownProvider>
+          </div>
+        {/* </div> */}
+      </Navbar>
     </ChallengesProvider>
   )
 }

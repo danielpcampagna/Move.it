@@ -1,0 +1,42 @@
+.inputContainer {
+}
+
+.inputContainer input {
+    background: linear-gradient(to right, #4953B8 , rgba(73, 83, 184, 0.2));
+    border: 0;
+    border-radius: 5px 0 0 5px;
+    
+    font-size: 1.25rem;
+    color: var(--white);
+    text-indent: 1.5rem;
+    line-height: 5rem;
+
+    transform: translateY(-4px);
+}
+
+.inputContainer input:hover {
+    /* border: 1.5px solid #414AA3; */
+    box-shadow:inset 0px 0px 0px 1.5px #414AA3;
+}
+
+.inputContainer input::placeholder {
+    color: var(--text-blue);
+    /* background: linear-gradient(to right, #4953B8 , rgba(73, 83, 184, 0.2)); */
+    opacity: 1;
+    vertical-align: middle;
+    /* padding: 1.5rem; */
+}
+
+.inputContainer button {
+    background: var(--blue-dark);
+    
+    width: 5rem;
+    height: 5rem;
+
+    border: 0;
+    border-radius: 0 5px 5px 0;
+}
+
+.inputContainer button:active {
+    background: var(--green);
+}

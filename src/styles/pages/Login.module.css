@@ -1,0 +1,57 @@
+.loginContainer {
+    background: var(--blue);
+    height: 100vh;
+}
+
+.loginContainer .watermark {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.loginContainer > div {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    top: 0;
+    right: 0;
+
+}
+
+.loginContainer .container {
+    position: absolute;
+    top: 50%;
+    left: 6.9444%;
+    transform: translateY(-50%);
+    color: var(--text-blue);
+}
+
+.loginContainer .container > svg {
+    margin-bottom: 6rem;
+}
+
+.loginContainer .container strong {
+    font-size: 2.25rem;
+    margin-bottom: 1.5rem;
+    color: var(--white);
+    display: block;
+}
+
+.loginContainer .container .info {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 2.5rem;
+}
+
+.loginContainer .container .info > * {
+    display: inline-block;
+}
+
+.loginContainer .container .info > p {
+    width: 15.875rem;
+    margin-left: 1.5rem;
+}
+
