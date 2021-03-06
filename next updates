@@ -11,6 +11,6 @@ add pwa
 usar temas diferentes (dark)
 
 #novas funcionalidades (tudo com o next sem precisar de backend)
-1. logar com o github (oauth github; pesquisar no youtube da rocketseat o vídeo "serveless com react.js e next na vercel")
-2. ranking
-3. compartilhar no twiter
+[DONE] 1. logar com o github (oauth github; pesquisar no youtube da rocketseat o vídeo "serveless com react.js e next na vercel")
+[DONE] 2. ranking
+[] 3. compartilhar no twiter

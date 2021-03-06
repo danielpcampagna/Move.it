@@ -5,6 +5,8 @@ import styles from '../styles/pages/Ranking.module.css';
 import Navbar from '../components/Navbar';
 import { UserContext } from '../bases';
 
+const timout = 8000;
+
 type ItemProps = UserContext & {
     position: number;
 }
@@ -21,7 +23,7 @@ function Ranking({ items }) {
             if (!items || items.length === 0) {
                 setIsFetchingData(false)
             }
-        }, 5000)
+        }, timout)
     }, [])
 
     useEffect(() => {
@@ -85,6 +87,9 @@ function Ranking({ items }) {
 }
 
 Ranking.getInitialProps = async (ctx) => {
+    const controller = new AbortController();
+    const id = setTimeout(() => controller.abort(), timout);
+
     const options = {
         method: 'GET',
         headers: {
@@ -92,7 +97,10 @@ Ranking.getInitialProps = async (ctx) => {
             'Content-Type': 'application/json;charset=UTF-8'
         }
     };
-    let items: ItemProps[] = await fetch('/api/users/', options).then(res => res.json()).catch(error => console.error('timeout excedido'));
+    let items: ItemProps[] = await fetch('/api/users/', options)
+                                        .then(res => res.json())
+                                        .catch(error => console.error('timeout excedido'));
+    clearTimeout(id);
     
     // const items = await axios.get<UserContext[]>('/api/users/').then(e => e.data);
 
