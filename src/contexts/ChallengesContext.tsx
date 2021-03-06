@@ -1,8 +1,11 @@
 import { createContext, ReactNode, useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
+import { useSession } from 'next-auth/client';
 
 import challenges from '../../challenges.json';
 import { LevelUpModal } from '../components/LevelUpModal';
+import axios from 'axios';
+import { User, ChallengeContext, UserContext } from '../bases';
 
 interface ChallengesProviderProps {
     children: ReactNode;
@@ -36,6 +39,8 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
     const [ level, setLevel ] = useState(rest.level ?? 1);
     const [ currentExperience, setCurrentExperience ] = useState(rest.currentExperience ?? 0);
     const [ challengesCompleted, setChallengesCompleted ] = useState(rest.challengesCompleted ?? 0);
+
+    const [ session, loading ] = useSession();
 
     const [ activeChallenge, setActiveChallenge ] = useState(null);
     const [ isLevelUpModalOpen, setIsLevelUpModalOpen ] = useState(false);
@@ -97,6 +102,26 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
         setCurrentExperience(finalExperience);
         setActiveChallenge(null);
         setChallengesCompleted(challengesCompleted + 1);
+        saveUserContext();
+    }
+
+    function saveUserContext() {
+        const { name, email, image } = session.user;
+        const id = name;
+        const user: User = {
+            name,
+            email,
+            image,
+        }
+        const challengeContext: ChallengeContext = {
+            level,
+            currentExperience,
+            challengesCompleted,
+        }
+        axios.post(`/api/users/${id}`, {
+            user,
+            challengeContext
+        })
     }
 
     return (

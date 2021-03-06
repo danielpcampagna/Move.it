@@ -24,7 +24,6 @@ interface HomeProps {
 }
 
 export default function Home(props: HomeProps) {
-
   const [ session, loading ] = useSession()
 
   return (

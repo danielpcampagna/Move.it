@@ -1,22 +1,32 @@
-import { useState } from 'react';
-import Navbar from '../components/Navbar';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+
 import styles from '../styles/pages/Ranking.module.css';
+import Navbar from '../components/Navbar';
+import { UserContext } from '../bases';
 
-import ranking from '../../ranking.json';
-
-interface ItemProps {
+type ItemProps = UserContext & {
     position: number;
-    user: {
-        name: string;
-        level: number;
-        challengesCompleted: number;
-        experience: number;
-        picture: string;
-    };
 }
 
-export default function Ranking() {
-    const [ items, setItems ] = useState<ItemProps[]>(ranking);
+function Ranking({ items }) {
+
+    const [ isFetchingData, setIsFetchingData ] = useState<boolean>(false);
+
+    useEffect(() => {
+        console.log(true, items)
+        setIsFetchingData(true)
+        setTimeout(() => {
+            console.log(false, items)
+            if (!items || items.length === 0) {
+                setIsFetchingData(false)
+            }
+        }, 5000)
+    }, [])
+
+    useEffect(() => {
+
+    })
 
     return (
         <Navbar>
@@ -24,38 +34,72 @@ export default function Ranking() {
                 <header>
                     <h1>Leaderboard</h1>
                 </header>
-
-                <div className={styles.grid}>
-                    <div className={styles.header}>Posição</div>
-                    <div className={styles.header} style={{ marginLeft: '1.75rem' }}>Usuário</div>
-                    <div className={styles.header}>Desafios</div>
-                    <div className={styles.header}>Experiência</div>
-
-                    {items.map((item, i) => (
-                        <>
-                            <div className={styles.firstCell}>{item.position}</div>
-                            <div className={`${styles.cell} ${styles.user}`}>
-                                <div>
-                                    <img className={styles.logo} src={item.user.picture} alt={item.user.name} />
-                                    <div className={styles.info}>
-                                        <strong>{item.user.name}</strong>
-                                        <p>
-                                            <img className={styles.level} src="icons/small-level.svg" alt="Level"/>
-                                            Level {item.user.level}
-                                        </p>
+                { items.length == 0 ? (
+                    <div className={styles.center}>
+                        { isFetchingData ? (
+                            <div className="loader"></div>    
+                        ) : (
+                            <>
+                                <strong>O raking parece estar vazio agora...</strong>
+                                <p>Corra Forrest!!! E garanta a primeira posição :)</p>
+                            </>
+                        )}
+                    </div>
+                ) : (
+                    <>
+                        <div className={styles.grid}>
+                            <div className={styles.header}>Posição</div>
+                            <div className={styles.header} style={{ marginLeft: '1.75rem' }}>Usuário</div>
+                            <div className={styles.header}>Desafios</div>
+                            <div className={styles.header}>Experiência</div>
+        
+                            {items.map((item, i) => (
+                                <React.Fragment key={i}>
+                                    <div className={styles.firstCell}>{item.position}</div>
+                                    <div className={`${styles.cell} ${styles.user}`}>
+                                        <div>
+                                            <img className={styles.logo} src={item.user.image} alt={item.user.name} />
+                                            <div className={styles.info}>
+                                                <strong>{item.user.name}</strong>
+                                                <p>
+                                                    <img className={styles.level} src="icons/small-level.svg" alt="Level"/>
+                                                    Level {item.challengeContext.level}
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div className={styles.cell} style={{ lineHeight: '6rem'}}>
-                                <span style={{ color: 'var(--blue)'}}>{item.user.challengesCompleted}</span> completados
-                            </div>
-                            <div className={styles.lastCell} style={{ lineHeight: '6rem'}}>
-                            <span style={{ color: 'var(--blue)'}}>{item.user.experience}</span> xp
-                            </div>
-                        </>
-                    ))}
-                </div>
+                                    <div className={styles.cell} style={{ lineHeight: '6rem'}}>
+                                        <span style={{ color: 'var(--blue)'}}>{item.challengeContext.challengesCompleted}</span> completados
+                                    </div>
+                                    <div className={styles.lastCell} style={{ lineHeight: '6rem'}}>
+                                    <span style={{ color: 'var(--blue)'}}>{item.challengeContext.currentExperience}</span> xp
+                                    </div>
+                                </React.Fragment>
+                            ))}
+                        </div>
+                    </>
+                )}
             </div>
         </Navbar>
     )
 }
+
+Ranking.getInitialProps = async (ctx) => {
+    const options = {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json;charset=UTF-8'
+        }
+    };
+    let items: ItemProps[] = await fetch('/api/users/', options).then(res => res.json()).catch(error => console.error('timeout excedido'));
+    
+    // const items = await axios.get<UserContext[]>('/api/users/').then(e => e.data);
+
+    // Set positions
+    items = !items ? [] : (items.sort((a, b) => a.challengeContext.level - b.challengeContext.level)
+                                .map((item, position) => { return { ...item, position }}))
+    return { items }
+}
+
+export default Ranking

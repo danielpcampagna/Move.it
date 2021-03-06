@@ -48,3 +48,17 @@ a {
     color: inherit;
     text-decoration: none;
 }
+
+.loader {
+    border: 4px solid var(--backgroud);
+    border-top: 4px solid var(--green);
+    border-radius: 50%;
+    width: 88px;
+    height: 88px;
+    animation: spin 0.5s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
