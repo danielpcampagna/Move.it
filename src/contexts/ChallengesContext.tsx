@@ -81,7 +81,6 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
     }
 
     function completeChallenge() {
-        console.log(activeChallenge)
         if (!activeChallenge) {
             return;
         }

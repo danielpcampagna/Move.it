@@ -1,7 +1,7 @@
 .navbarContainer {
     position: fixed;
     
-    background: var(--white);
+    background: linear-gradient(var(--white), var(--backgroud));
     
     height: 100vh;
     width: 7rem;
@@ -27,11 +27,14 @@
     height: 3.5rem;
     margin-bottom: 11px;
 
-    background: var(--white);
+    background: transparent;
     border: 0;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
     font-size: 0;
     color: var(--text);
     opacity: 0.5;
+    
 }
 
 .navbarContainer button:hover {

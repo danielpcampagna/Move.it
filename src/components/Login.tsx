@@ -1,11 +1,12 @@
-import Input from '../components/Input';
-import styles from '../styles/pages/Login.module.css';
+import { signIn } from 'next-auth/client'
 
+import styles from '../styles/pages/Login.module.css';
 import GithubIcon from '../../public/icons/github.svg';
 import LogoWhiteIcon from '../../public/logo-full-white.svg';
 import LoginWaterIcon from '../../public/login-water.svg';
 
 export default function Login() {
+
     return (
         <div className={styles.loginContainer}>
             <LoginWaterIcon className={styles.watermark} />
@@ -20,7 +21,18 @@ export default function Login() {
                                 Faça login com seu Github para começar
                             </p>
                         </div>
-                        <Input />
+                        {/* <button onClick={() => signin()}>Sign in</button> */}
+                        <a
+                            href={`/api/auth/signin`}
+                            className={styles.buttonPrimary}
+                            onClick={(e) => {
+                                e.preventDefault()
+                                signIn()
+                            }}
+                        >
+                            Sign in
+                        </a>
+                        {/* <Input /> */}
                     </div>
                 </div>
             </div>

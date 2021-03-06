@@ -14,6 +14,8 @@ import { ChallengesProvider } from '../contexts/ChallengesContext';
 
 
 import Navbar from '../components/Navbar';
+import { useSession, getSession } from 'next-auth/client'
+import Login from '../components/Login';
 
 interface HomeProps {
   level: number,
@@ -23,38 +25,43 @@ interface HomeProps {
 
 export default function Home(props: HomeProps) {
 
+  const [ session, loading ] = useSession()
+
   return (
-    <ChallengesProvider
-      level={props.level}
-      currentExperience={props.currentExperience}
-      challengesCompleted={props.challengesCompleted}
-    >
-      <Navbar>
-        {/* <div className={styles.homeContainer}> */}
-          <div className={styles.container}>
-            <Head>
-              <title>Início | move.it</title>
-            </Head>
+    <>
+      { !session ? (
+        <Login></Login>
+      ) : (
+        <ChallengesProvider
+          level={props.level}
+          currentExperience={props.currentExperience}
+          challengesCompleted={props.challengesCompleted}
+        >
+          <Navbar>
+            {/* <div className={styles.homeContainer}> */}
+              <div className={styles.container}>
+                <Head>
+                  <title>Início | move.it</title>
+                </Head>
+                  <ExperienceBar></ExperienceBar>
 
-
-            <ExperienceBar></ExperienceBar>
-
-            <CountdownProvider>
-              <section>
-                <div>
-                  <Profile />
-                  <CompletedChallenges />
-                  <Countdown />
-                </div>
-                <div>
-                  <ChallengeBox/>
-                </div>
-              </section>
-            </CountdownProvider>
-          </div>
-        {/* </div> */}
-      </Navbar>
-    </ChallengesProvider>
+                  <CountdownProvider>
+                    <section>
+                      <div>
+                        <Profile />
+                        <CompletedChallenges />
+                        <Countdown />
+                      </div>
+                      <div>
+                        <ChallengeBox/>
+                      </div>
+                    </section>
+                  </CountdownProvider>
+              </div>
+          </Navbar>
+        </ChallengesProvider>
+      )}
+    </>
   )
 }
 
@@ -66,7 +73,8 @@ export const getServerSideProps:GetServerSideProps = async (ctx) => {
     props: {
       level: Number(level),
       currentExperience: Number(currentExperience),
-      challengesCompleted: Number(challengesCompleted)
+      challengesCompleted: Number(challengesCompleted),
+      session: await getSession(ctx)
     }
   }
 }
