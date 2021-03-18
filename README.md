@@ -42,7 +42,7 @@
     <br />
     <a href="https://www.figma.com/file/XCIDuGRBbSbZnWNUy1KNN8/Move.it-2.0">View Templates</a>
     ·
-    <a href="https://nlw4-moveit-two.vercel.app/">View Demo</a>
+    <a href="https://moveit.danielpcampagna.vercel.app/">View Demo</a>
     ·
     <a href="https://github.com/danielpcampagna/next-level-week-4/issues">Report Bug</a>
     ·
