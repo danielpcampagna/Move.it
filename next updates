@@ -6,11 +6,11 @@ quais funcionalidades
 prints
 explicar o uso de SSG
 
-responsiva
-add pwa
-usar temas diferentes (dark)
 
 #novas funcionalidades (tudo com o next sem precisar de backend)
 [DONE] 1. logar com o github (oauth github; pesquisar no youtube da rocketseat o vídeo "serveless com react.js e next na vercel")
 [DONE] 2. ranking
-[] 3. compartilhar no twiter
+[DONE] 3. add pwa
+[TODO] 4. responsividade
+[TODO] 5. usar temas diferentes (dark)
+[TODO] 6. compartilhar no twiter
