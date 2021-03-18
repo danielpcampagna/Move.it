@@ -88,9 +88,10 @@
 
 This is not a project for commercial aims but serves to fill my personal portfolio of projects. This project was partially developed together with the Rockseat team during the fourth Next Level Week edition for educational aims. Further changes after release [v1.0.0](https://github.com/danielpcampagna/next-level-week-4/releases/tag/v1.0.0) were implemented on my own. These changes inter alias append the following functionalities: 
 
-* Users can now Log In by using GitHub username; [in progress]
-* Users can persist and share on Twiter their Ranking position; and [to-do]
-* Users can use this app as a PWA. [to-do]
+* Users can now Log In by using GitHub username; [done!]
+* Users can persist their own info (level, current XP, etc.) in MongoDB; [done!]
+* Users can use this app as a PWA; and [done!]
+* Users can share on Twiter their Ranking position. [in progress]
 
 ### Move.it
 
