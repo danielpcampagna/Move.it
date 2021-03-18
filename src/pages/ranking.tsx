@@ -106,7 +106,7 @@ Ranking.getInitialProps = async (ctx) => {
 
     // Set positions
     items = !items ? [] : (items.sort((a, b) => a.challengeContext.level - b.challengeContext.level)
-                                .map((item, position) => { return { ...item, position }}))
+                                .map((item, position) => { return { ...item, position: (position + 1) }}))
     return { items }
 }
 
