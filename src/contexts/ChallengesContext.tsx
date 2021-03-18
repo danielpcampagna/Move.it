@@ -55,6 +55,7 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
         Cookies.set('level', String(level));
         Cookies.set('currentExperience', String(currentExperience));
         Cookies.set('challengesCompleted', String(challengesCompleted));
+        saveUserContext();
     }, [level, currentExperience, challengesCompleted])
 
     function levelUp() {
@@ -102,7 +103,6 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
         setCurrentExperience(finalExperience);
         setActiveChallenge(null);
         setChallengesCompleted(challengesCompleted + 1);
-        saveUserContext();
     }
 
     function saveUserContext() {
