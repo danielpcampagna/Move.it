@@ -35,7 +35,8 @@
   <h3 align="center">Next Level Week #4 / Move.it</h3>
 
   <p align="center">
-    Just another episode of a developer’s long and infinite learning journey.
+<!--     Just another episode of a developer’s long and infinite learning journey. -->
+    Saving developers health whereas they save the production code
     <!-- <br />
     <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <br /> -->
@@ -86,7 +87,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://nlw4-moveit-two.vercel.app/)
 
-This is not a project for commercial aims but serves to fill my personal portfolio of projects. This project was partially developed together with the Rockseat team during the fourth Next Level Week edition for educational aims. Further changes after release [v1.0.0](https://github.com/danielpcampagna/next-level-week-4/releases/tag/v1.0.0) were implemented on my own. These changes inter alias append the following functionalities: 
+This is not a project for commercial aims but served me as a practical introduction to web technologies. This project was partially developed together with the Rockseat team during the fourth Next Level Week edition for educational aims. Further changes after release [v1.0.0](https://github.com/danielpcampagna/next-level-week-4/releases/tag/v1.0.0) were implemented on my own. Those changes introduce inter alias the following functionalities:
 
 * Users can now Log In by using GitHub username; [done!]
 * Users can persist their own info (level, current XP, etc.) in MongoDB; [done!]
