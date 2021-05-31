@@ -36,7 +36,7 @@
 
   <p align="center">
 <!--     Just another episode of a developer’s long and infinite learning journey. -->
-    Saving developers health whereas they save the production code
+    Saving developers health whereas they save the code in production
     <!-- <br />
     <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <br /> -->
