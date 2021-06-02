@@ -105,8 +105,12 @@ Ranking.getInitialProps = async (ctx) => {
     // const items = await axios.get<UserContext[]>('/api/users/').then(e => e.data);
 
     // Set positions
-    const result = !items && Array.isArray(items) ? [] : (items.sort((a, b) => a.challengeContext.level - b.challengeContext.level)
-                                .map((item, position) => { return { ...item, position: (position + 1) }}))
+    const result = (!!items && Array.isArray(items)) ? (
+            items.sort((a, b) => a.challengeContext.level - b.challengeContext.level)
+                .map((item, position) => { return { ...item, position: (position + 1) }})
+        ) : (
+            []
+        )
     return { items: result }
 }
 
