@@ -24,8 +24,8 @@ const options = {
   // https://next-auth.js.org/configuration/providers
   providers: [
     Providers.GitHub({
-      clientId: process.env.GITHUB_ID!,
-      clientSecret: process.env.GITHUB_SECRET!
+      clientId: process.env.GITHUB_ID,
+      clientSecret: process.env.GITHUB_SECRET
     }),
   ],
   // // Database optional. MySQL, Maria DB, Postgres and MongoDB are supported.
